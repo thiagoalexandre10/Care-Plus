@@ -855,21 +855,18 @@ body {
 .text-red   { color: var(--red); }
 
 
+
 /* ════════════════════════════
-   TEMA ESCURO — CORREÇÃO DOS BOTÕES DE APARÊNCIA
-   O JavaScript adiciona/remova a classe .theme-dark no body.
+   CORREÇÕES FINAIS — TEMA ESCURO E SININHO
+   Mantém cards/conteúdos legíveis em todas as telas.
 ════════════════════════════ */
 body.theme-dark {
   background: #0f172a;
-  color: #f8fafc;
 }
 
 body.theme-dark .content-area {
   background: #111827;
-}
-
-body.theme-dark .main-area {
-  background: #111827;
+  color: #f8fafc;
 }
 
 body.theme-dark .topbar {
@@ -885,119 +882,169 @@ body.theme-dark #page-sub {
   color: var(--gray-600);
 }
 
-/* Sidebar de configurações continua clara para manter contraste */
-body.theme-dark #view-configuracoes .home-card,
-body.theme-dark #view-configuracoes .config-section {
+body.theme-dark .home-greeting {
+  color: #ffffff;
+}
+
+body.theme-dark .home-sub {
+  color: #94a3b8;
+}
+
+/* Os cards continuam claros para não sumir texto interno */
+body.theme-dark .home-card,
+body.theme-dark .stat-card,
+body.theme-dark .consultas-list,
+body.theme-dark .selected-day-detail,
+body.theme-dark .chat-wrap,
+body.theme-dark .config-section,
+body.theme-dark .modal-card,
+body.theme-dark .notif-panel,
+body.theme-dark .alert-bar,
+body.theme-dark .conquista-card {
   background: #ffffff;
   color: var(--gray-800);
   border-color: var(--gray-200);
 }
 
-body.theme-dark #view-configuracoes .home-card h3,
-body.theme-dark #view-configuracoes .config-section h3,
-body.theme-dark #view-configuracoes .config-section p,
-body.theme-dark #view-configuracoes .form-label-cp {
+body.theme-dark .home-card h3,
+body.theme-dark .config-section h3,
+body.theme-dark .selected-day-detail h4,
+body.theme-dark .chat-header h3,
+body.theme-dark .consulta-info h4,
+body.theme-dark .conquista-name,
+body.theme-dark .rank-name,
+body.theme-dark .stat-value,
+body.theme-dark .form-field label,
+body.theme-dark .form-label-cp {
   color: var(--gray-800);
-  opacity: 1;
 }
 
-body.theme-dark #view-configuracoes .config-sidebar-item {
-  color: var(--gray-800);
-}
-
-body.theme-dark #view-configuracoes .config-sidebar-item i {
+body.theme-dark .home-card p,
+body.theme-dark .config-section p,
+body.theme-dark .consulta-info .doctor,
+body.theme-dark .consulta-info .place,
+body.theme-dark .consulta-meta span,
+body.theme-dark .conquista-desc,
+body.theme-dark .toggle-row .info small,
+body.theme-dark .stat-label,
+body.theme-dark .stat-sub,
+body.theme-dark .notif-item .notif-text span {
   color: var(--gray-600);
 }
 
-body.theme-dark #view-configuracoes .config-sidebar-item.active {
-  background: var(--primary-pale);
+body.theme-dark .filter-tab {
+  color: #cbd5e1;
+}
+
+body.theme-dark .filter-tab.active {
+  color: var(--primary-light);
+  border-bottom-color: var(--primary-light);
+}
+
+body.theme-dark .btn-outline-cp,
+body.theme-dark .shortcut-btn,
+body.theme-dark .quick-btn,
+body.theme-dark .btn-entendi,
+body.theme-dark .btn-reagendar-sm,
+body.theme-dark .btn-cancel-modal,
+body.theme-dark .select-cp,
+body.theme-dark .form-control-cp,
+body.theme-dark .form-field input,
+body.theme-dark .chat-input {
+  background: #ffffff;
+  color: var(--gray-800);
+  border-color: var(--gray-200);
+}
+
+body.theme-dark .btn-outline-cp i,
+body.theme-dark .shortcut-btn i,
+body.theme-dark .quick-btn i {
   color: var(--primary);
 }
 
-body.theme-dark #view-configuracoes .config-sidebar-item.active i {
-  color: var(--primary);
-}
-
-/* Botões Claro / Escuro / Automático */
-body.theme-dark #view-configuracoes .mode-btn {
+/* Botões da tela Aparência */
+body.theme-dark .mode-btn,
+body.theme-dark .font-btn {
   background: #ffffff;
   color: var(--gray-800);
   border-color: var(--gray-800);
   opacity: 1;
 }
 
-body.theme-dark #view-configuracoes .mode-btn i,
-body.theme-dark #view-configuracoes .mode-btn span {
-  color: var(--gray-800);
+body.theme-dark .mode-btn *,
+body.theme-dark .font-btn * {
+  color: inherit;
   opacity: 1;
+  visibility: visible;
 }
 
-/* Botões Pequena / Média / Grande */
-body.theme-dark #view-configuracoes .font-btn {
-  background: #ffffff;
-  color: var(--gray-800);
-  border-color: var(--gray-800);
-  opacity: 1;
-}
-
-body.theme-dark #view-configuracoes .font-btn span,
-body.theme-dark #view-configuracoes .font-btn div {
-  color: var(--gray-800);
-  opacity: 1;
-}
-
-/* Estado selecionado dos botões da aparência */
-body.theme-dark #view-configuracoes .mode-btn.selected,
-body.theme-dark #view-configuracoes .font-btn.selected {
+body.theme-dark .mode-btn.selected,
+body.theme-dark .font-btn.selected {
   background: var(--primary-pale);
   color: var(--primary);
   border-color: var(--primary);
 }
 
-body.theme-dark #view-configuracoes .mode-btn.selected i,
-body.theme-dark #view-configuracoes .mode-btn.selected span,
-body.theme-dark #view-configuracoes .font-btn.selected span,
-body.theme-dark #view-configuracoes .font-btn.selected div {
+body.theme-dark .mode-btn.selected *,
+body.theme-dark .font-btn.selected * {
   color: var(--primary);
-  opacity: 1;
 }
 
-/* Prévia continua com o azul da marca */
-body.theme-dark #view-configuracoes .notif-preview {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  color: #ffffff;
-}
-
-body.theme-dark #view-configuracoes .notif-preview h4,
-body.theme-dark #view-configuracoes .notif-preview p,
-body.theme-dark #view-configuracoes .notif-preview .mini-card,
-body.theme-dark #view-configuracoes .notif-preview .mini-card * {
-  color: #ffffff;
-  opacity: 1;
-}
-
-
-/* ════════════════════════════
-   CORREÇÃO — SININHO NO MODO ESCURO
-   O botão de notificação fica no topo fora da tela de configurações.
-   Por isso precisa de regra própria para o tema escuro.
-════════════════════════════ */
+/* Sininho da topbar: botão fica branco, ícone precisa ficar escuro */
 body.theme-dark .notif-btn {
-  background: #ffffff !important;
-  border-color: var(--gray-200) !important;
-  color: var(--gray-800) !important;
+  background: #ffffff;
+  border-color: var(--gray-200);
+  color: var(--gray-800);
 }
 
 body.theme-dark .notif-btn i {
-  color: var(--gray-800) !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  color: var(--gray-800);
+  opacity: 1;
+  visibility: visible;
 }
 
 body.theme-dark .notif-btn:hover {
-  background: var(--gray-100) !important;
+  background: var(--gray-100);
 }
 
 body.theme-dark .notif-dot {
-  border-color: #ffffff !important;
+  border-color: #ffffff;
+}
+
+body.theme-dark .notif-item:hover {
+  background: var(--gray-50);
+}
+
+body.theme-dark .notif-item.unread {
+  background: var(--primary-pale);
+}
+
+body.theme-dark .msg-bot {
+  background: var(--primary-pale);
+  color: var(--gray-800);
+}
+
+body.theme-dark .msg-user,
+body.theme-dark .next-consult-card,
+body.theme-dark .points-card,
+body.theme-dark .chat-bot-banner,
+body.theme-dark .clima-card,
+body.theme-dark .notif-preview {
+  color: #ffffff;
+}
+
+/* ════════════════════════════
+   AJUSTE — BOTÕES DO CALENDÁRIO / MODAL
+════════════════════════════ */
+.cal-consult-item .btn-reagendar-sm,
+.cal-consult-item .btn-cancel-sm,
+.cal-consult-item .btn-confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body.theme-dark .cal-consult-item {
+  background: var(--primary-pale);
+  color: var(--gray-800);
 }

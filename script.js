@@ -317,30 +317,46 @@ function renderRanking() {
 }
 
 // ─── CALENDÁRIO ────────────────────────────────────
-let calYear = 2025, calMonth = 9;
+const todayDate = new Date();
+let calYear = todayDate.getFullYear(); 
+let calMonth = todayDate.getMonth();  
+
 const monthNames = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-const eventDays  = [31];
+const eventDays  = [31]; 
 
 function renderCalendar() {
   const title = document.getElementById('cal-month-title');
   if (title) title.textContent = `${monthNames[calMonth]} ${calYear}`;
 
-  const grid     = document.getElementById('cal-grid');
+  const grid = document.getElementById('cal-grid');
   if (!grid) return;
 
-  const days     = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+  const days = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
   const firstDay = new Date(calYear, calMonth, 1).getDay();
-  const total    = new Date(calYear, calMonth + 1, 0).getDate();
+  const total = new Date(calYear, calMonth + 1, 0).getDate();
+
+    const realToday = new Date();
 
   let html = days.map(d => `<div class="cal-day-header">${d}</div>`).join('');
-  for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty other-month"></div>`;
+  
+  for (let i = 0; i < firstDay; i++) {
+    html += `<div class="cal-day empty other-month"></div>`;
+  }
+
   for (let d = 1; d <= total; d++) {
-    const isToday  = d === 31 && calMonth === 9 && calYear === 2025;
+    
+    const isToday = d === realToday.getDate() && 
+                    calMonth === realToday.getMonth() && 
+                    calYear === realToday.getFullYear();
+                    
     const hasEvent = eventDays.includes(d);
+    
     html += `<div class="cal-day${isToday ? ' today' : ''}${hasEvent ? ' has-event' : ''}" onclick="selectDay(${d})">${d}</div>`;
   }
   grid.innerHTML = html;
 }
+
+renderCalendar();
 
 function changeMonth(dir) {
   calMonth += dir;

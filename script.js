@@ -317,46 +317,30 @@ function renderRanking() {
 }
 
 // ─── CALENDÁRIO ────────────────────────────────────
-const todayDate = new Date();
-let calYear = todayDate.getFullYear(); 
-let calMonth = todayDate.getMonth();  
-
+let calYear = 2025, calMonth = 9;
 const monthNames = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-const eventDays  = [31]; 
+const eventDays  = [31];
 
 function renderCalendar() {
   const title = document.getElementById('cal-month-title');
   if (title) title.textContent = `${monthNames[calMonth]} ${calYear}`;
 
-  const grid = document.getElementById('cal-grid');
+  const grid     = document.getElementById('cal-grid');
   if (!grid) return;
 
-  const days = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+  const days     = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
   const firstDay = new Date(calYear, calMonth, 1).getDay();
-  const total = new Date(calYear, calMonth + 1, 0).getDate();
-
-    const realToday = new Date();
+  const total    = new Date(calYear, calMonth + 1, 0).getDate();
 
   let html = days.map(d => `<div class="cal-day-header">${d}</div>`).join('');
-  
-  for (let i = 0; i < firstDay; i++) {
-    html += `<div class="cal-day empty other-month"></div>`;
-  }
-
+  for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty other-month"></div>`;
   for (let d = 1; d <= total; d++) {
-    
-    const isToday = d === realToday.getDate() && 
-                    calMonth === realToday.getMonth() && 
-                    calYear === realToday.getFullYear();
-                    
+    const isToday  = d === 31 && calMonth === 9 && calYear === 2025;
     const hasEvent = eventDays.includes(d);
-    
     html += `<div class="cal-day${isToday ? ' today' : ''}${hasEvent ? ' has-event' : ''}" onclick="selectDay(${d})">${d}</div>`;
   }
   grid.innerHTML = html;
 }
-
-renderCalendar();
 
 function changeMonth(dir) {
   calMonth += dir;
@@ -406,21 +390,50 @@ function showConfig(panel, btn) {
   btn.classList.add('active');
 }
 
-function selectMode(el) {
+function aplicarModoVisual(mode) {
+  const isAutoDark = mode === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = mode === 'dark' || isAutoDark;
+
+  document.body.classList.toggle('theme-dark', isDark);
+  document.body.classList.toggle('theme-light', !isDark);
+
+  localStorage.setItem('careplus-theme-mode', mode);
+}
+
+function selectMode(el, mode = 'light') {
   el.closest('.mode-btns').querySelectorAll('.mode-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
+
+  aplicarModoVisual(mode);
   toast('Modo atualizado!');
 }
 
 function selectSwatch(el) {
   el.closest('.color-swatches').querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
   el.classList.add('selected');
+
+  const color = el.dataset.color;
+  const light = el.dataset.light;
+
+  if (color) document.documentElement.style.setProperty('--primary', color);
+  if (light) document.documentElement.style.setProperty('--primary-light', light);
+
   toast('Cor principal atualizada!');
 }
 
-function selectFont(el) {
+function selectFont(el, size = 'medium') {
   el.closest('.font-btns').querySelectorAll('.font-btn').forEach(b => b.classList.remove('selected'));
   el.classList.add('selected');
+
+  const scales = {
+    small: '0.92',
+    medium: '1',
+    large: '1.12'
+  };
+
+  document.documentElement.style.setProperty('--font-scale', scales[size] || '1');
+  localStorage.setItem('careplus-font-size', size);
+
   toast('Fonte atualizada!');
 }
 
@@ -452,6 +465,31 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') doLogin();
     });
   }
+
+  // Aplica preferências salvas de aparência
+  const savedMode = localStorage.getItem('careplus-theme-mode') || 'light';
+  const savedModeBtn = document.querySelector(`.mode-btn[onclick*="'${savedMode}'"]`);
+  if (savedModeBtn) {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('selected'));
+    savedModeBtn.classList.add('selected');
+  }
+  aplicarModoVisual(savedMode);
+
+  const savedFont = localStorage.getItem('careplus-font-size') || 'medium';
+  const savedFontBtn = document.querySelector(`.font-btn[onclick*="'${savedFont}'"]`);
+  if (savedFontBtn) {
+    document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('selected'));
+    savedFontBtn.classList.add('selected');
+  }
+  const fontScales = { small: '0.92', medium: '1', large: '1.12' };
+  document.documentElement.style.setProperty('--font-scale', fontScales[savedFont] || '1');
+
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  media.addEventListener?.('change', () => {
+    if (localStorage.getItem('careplus-theme-mode') === 'auto') {
+      aplicarModoVisual('auto');
+    }
+  });
 });
 
 // ─── TOAST ─────────────────────────────────────────
@@ -463,3 +501,15 @@ function toast(msg) {
   container.appendChild(el);
   setTimeout(() => el.remove(), 3000);
 }
+
+//Função trocar de cores e alterar modo de exibição
+
+const cores = document.querySelectorAll(".color")
+cores.forEach(cor => {
+  cor.addEventListener("clicar" , () => {
+    const novaCor = cor.CDATA_SECTION_NODE.color;
+
+    document.documentElement.style.setProperty("--Cor primaria" ,novaCor);
+    
+  })
+})

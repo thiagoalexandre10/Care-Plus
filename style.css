@@ -856,195 +856,460 @@ body {
 
 
 
-/* ════════════════════════════
-   CORREÇÕES FINAIS — TEMA ESCURO E SININHO
-   Mantém cards/conteúdos legíveis em todas as telas.
-════════════════════════════ */
-body.theme-dark {
-  background: #0f172a;
-}
 
-body.theme-dark .content-area {
-  background: #111827;
-  color: #f8fafc;
-}
+/* ═══════════════════════════════
+   AJUSTE FINAL — MODO ESCURO
+   Mantém o restante da aplicação e apenas reativa a troca claro/escuro
+═══════════════════════════════ */
 
-body.theme-dark .topbar {
-  background: #ffffff;
-  border-bottom-color: var(--gray-200);
-}
-
-body.theme-dark #page-title {
+body.theme-light {
+  background: var(--gray-50);
   color: var(--gray-800);
 }
 
-body.theme-dark #page-sub {
-  color: var(--gray-600);
+body.theme-dark {
+  background: #0f172a;
+  color: #f8fafc;
 }
 
-body.theme-dark .home-greeting {
-  color: #ffffff;
+body.theme-dark .main-area,
+body.theme-dark .content-area {
+  background: #0f172a;
 }
 
-body.theme-dark .home-sub {
-  color: #94a3b8;
-}
-
-/* Os cards continuam claros para não sumir texto interno */
+body.theme-dark .topbar,
 body.theme-dark .home-card,
 body.theme-dark .stat-card,
 body.theme-dark .consultas-list,
 body.theme-dark .selected-day-detail,
-body.theme-dark .chat-wrap,
 body.theme-dark .config-section,
 body.theme-dark .modal-card,
 body.theme-dark .notif-panel,
-body.theme-dark .alert-bar,
-body.theme-dark .conquista-card {
-  background: #ffffff;
-  color: var(--gray-800);
-  border-color: var(--gray-200);
+body.theme-dark .chat-wrap,
+body.theme-dark .alert-bar {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
 }
 
-body.theme-dark .home-card h3,
+body.theme-dark #page-title,
+body.theme-dark .home-greeting,
 body.theme-dark .config-section h3,
-body.theme-dark .selected-day-detail h4,
-body.theme-dark .chat-header h3,
 body.theme-dark .consulta-info h4,
-body.theme-dark .conquista-name,
 body.theme-dark .rank-name,
+body.theme-dark .selected-day-detail h4,
+body.theme-dark .modal-card h3,
+body.theme-dark .chat-header h3,
 body.theme-dark .stat-value,
-body.theme-dark .form-field label,
-body.theme-dark .form-label-cp {
-  color: var(--gray-800);
+body.theme-dark .notif-panel-header strong {
+  color: #f8fafc !important;
 }
 
-body.theme-dark .home-card p,
+body.theme-dark #page-sub,
+body.theme-dark .home-sub,
 body.theme-dark .config-section p,
 body.theme-dark .consulta-info .doctor,
 body.theme-dark .consulta-info .place,
 body.theme-dark .consulta-meta span,
-body.theme-dark .conquista-desc,
-body.theme-dark .toggle-row .info small,
 body.theme-dark .stat-label,
 body.theme-dark .stat-sub,
-body.theme-dark .notif-item .notif-text span {
-  color: var(--gray-600);
+body.theme-dark .form-field label,
+body.theme-dark .form-label-cp,
+body.theme-dark .notif-item .notif-text span,
+body.theme-dark .alert-bar .alert-text p,
+body.theme-dark .cal-consult-item p {
+  color: #cbd5e1 !important;
 }
 
-body.theme-dark .filter-tab {
-  color: #cbd5e1;
-}
-
-body.theme-dark .filter-tab.active {
-  color: var(--primary-light);
-  border-bottom-color: var(--primary-light);
-}
-
-body.theme-dark .btn-outline-cp,
 body.theme-dark .shortcut-btn,
-body.theme-dark .quick-btn,
-body.theme-dark .btn-entendi,
+body.theme-dark .btn-outline-cp,
+body.theme-dark .btn-edit-cp,
 body.theme-dark .btn-reagendar-sm,
 body.theme-dark .btn-cancel-modal,
-body.theme-dark .select-cp,
-body.theme-dark .form-control-cp,
-body.theme-dark .form-field input,
-body.theme-dark .chat-input {
-  background: #ffffff;
-  color: var(--gray-800);
-  border-color: var(--gray-200);
-}
-
-body.theme-dark .btn-outline-cp i,
-body.theme-dark .shortcut-btn i,
-body.theme-dark .quick-btn i {
-  color: var(--primary);
-}
-
-/* Botões da tela Aparência */
 body.theme-dark .mode-btn,
-body.theme-dark .font-btn {
-  background: #ffffff;
-  color: var(--gray-800);
-  border-color: var(--gray-800);
-  opacity: 1;
-}
-
-body.theme-dark .mode-btn *,
-body.theme-dark .font-btn * {
-  color: inherit;
-  opacity: 1;
-  visibility: visible;
+body.theme-dark .font-btn,
+body.theme-dark .select-cp,
+body.theme-dark .form-field input,
+body.theme-dark .form-control-cp,
+body.theme-dark .chat-input,
+body.theme-dark .quick-btn {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
 }
 
 body.theme-dark .mode-btn.selected,
-body.theme-dark .font-btn.selected {
-  background: var(--primary-pale);
-  color: var(--primary);
-  border-color: var(--primary);
+body.theme-dark .font-btn.selected,
+body.theme-dark .config-sidebar-item.active {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: var(--primary-light) !important;
+  color: #fff !important;
 }
 
-body.theme-dark .mode-btn.selected *,
-body.theme-dark .font-btn.selected * {
-  color: var(--primary);
+body.theme-dark .config-sidebar-item {
+  color: #f8fafc !important;
 }
 
-/* Sininho da topbar: botão fica branco, ícone precisa ficar escuro */
+body.theme-dark .config-sidebar-item i {
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark .msg-bot,
+body.theme-dark .cal-consult-item {
+  background: #334155 !important;
+  color: #f8fafc !important;
+}
+
+/* Botão do sino no modo claro e escuro */
+.notif-btn {
+  background: #ffffff !important;
+  color: var(--gray-800) !important;
+  border-color: var(--gray-200) !important;
+}
+
+.notif-btn i {
+  color: var(--gray-800) !important;
+}
+
 body.theme-dark .notif-btn {
-  background: #ffffff;
-  border-color: var(--gray-200);
-  color: var(--gray-800);
+  background: var(--primary) !important;
+  border-color: var(--primary-light) !important;
+  color: #ffffff !important;
 }
 
 body.theme-dark .notif-btn i {
-  color: var(--gray-800);
-  opacity: 1;
-  visibility: visible;
+  color: #ffffff !important;
 }
 
 body.theme-dark .notif-btn:hover {
-  background: var(--gray-100);
+  background: var(--primary-light) !important;
 }
 
-body.theme-dark .notif-dot {
-  border-color: #ffffff;
+/* Mantém a seleção do calendário azul */
+.cal-day.selected {
+  background: #e8f0fe !important;
+  color: #1e4fc2 !important;
+  outline: 2px solid #1e4fc2 !important;
 }
 
-body.theme-dark .notif-item:hover {
-  background: var(--gray-50);
+.cal-day.today.selected {
+  background: #1e4fc2 !important;
+  color: #fff !important;
+  outline: 2px solid #1e4fc2 !important;
 }
 
-body.theme-dark .notif-item.unread {
-  background: var(--primary-pale);
+body.theme-dark .cal-day.selected {
+  background: rgba(59, 130, 246, 0.22) !important;
+  color: #93c5fd !important;
+  outline: 2px solid #3b82f6 !important;
 }
 
-body.theme-dark .msg-bot {
-  background: var(--primary-pale);
-  color: var(--gray-800);
+body.theme-dark .cal-day.today.selected {
+  background: #1e4fc2 !important;
+  color: #fff !important;
 }
 
-body.theme-dark .msg-user,
-body.theme-dark .next-consult-card,
-body.theme-dark .points-card,
-body.theme-dark .chat-bot-banner,
-body.theme-dark .clima-card,
-body.theme-dark .notif-preview {
-  color: #ffffff;
+
+/* ═══════════════════════════════
+   CORREÇÕES PONTUAIS — NÃO ALTERAR ESTRUTURA
+   Reativa aparência, cores do sidebar, sino e compatibilidade do modo escuro
+═══════════════════════════════ */
+
+/* A sidebar agora acompanha a cor principal escolhida nos botões de aparência */
+.sidebar {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
 }
 
-/* ════════════════════════════
-   AJUSTE — BOTÕES DO CALENDÁRIO / MODAL
-════════════════════════════ */
-.cal-consult-item .btn-reagendar-sm,
-.cal-consult-item .btn-cancel-sm,
-.cal-consult-item .btn-confirm {
-  display: inline-flex;
+/* Sino visível no modo claro */
+.notif-btn {
+  background: #ffffff !important;
+  border-color: var(--gray-200) !important;
+  color: var(--gray-800) !important;
+}
+
+.notif-btn i {
+  color: var(--gray-800) !important;
+}
+
+/* Sino visível no modo escuro */
+body.theme-dark .notif-btn {
+  background: var(--primary) !important;
+  border-color: var(--primary-light) !important;
+  color: #ffffff !important;
+}
+
+body.theme-dark .notif-btn i {
+  color: #ffffff !important;
+}
+
+body.theme-dark .notif-btn:hover {
+  background: var(--primary-light) !important;
+}
+
+/* Mantém o texto legível no modo escuro */
+body.theme-dark {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .main-area,
+body.theme-dark .content-area {
+  background: #0f172a !important;
+}
+
+body.theme-dark .topbar,
+body.theme-dark .home-card,
+body.theme-dark .stat-card,
+body.theme-dark .consultas-list,
+body.theme-dark .selected-day-detail,
+body.theme-dark .config-section,
+body.theme-dark .modal-card,
+body.theme-dark .notif-panel,
+body.theme-dark .chat-wrap,
+body.theme-dark .alert-bar {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark #page-title,
+body.theme-dark .home-greeting,
+body.theme-dark .config-section h3,
+body.theme-dark .consulta-info h4,
+body.theme-dark .rank-name,
+body.theme-dark .selected-day-detail h4,
+body.theme-dark .modal-card h3,
+body.theme-dark .chat-header h3,
+body.theme-dark .stat-value,
+body.theme-dark .notif-panel-header strong {
+  color: #f8fafc !important;
+}
+
+body.theme-dark #page-sub,
+body.theme-dark .home-sub,
+body.theme-dark .config-section p,
+body.theme-dark .consulta-info .doctor,
+body.theme-dark .consulta-info .place,
+body.theme-dark .consulta-meta span,
+body.theme-dark .stat-label,
+body.theme-dark .stat-sub,
+body.theme-dark .form-field label,
+body.theme-dark .form-label-cp,
+body.theme-dark .notif-item .notif-text span,
+body.theme-dark .alert-bar .alert-text p,
+body.theme-dark .cal-consult-item p {
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark .shortcut-btn,
+body.theme-dark .btn-outline-cp,
+body.theme-dark .btn-edit-cp,
+body.theme-dark .btn-reagendar-sm,
+body.theme-dark .btn-cancel-modal,
+body.theme-dark .mode-btn,
+body.theme-dark .font-btn,
+body.theme-dark .select-cp,
+body.theme-dark .form-field input,
+body.theme-dark .form-control-cp,
+body.theme-dark .chat-input,
+body.theme-dark .quick-btn {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .mode-btn.selected,
+body.theme-dark .font-btn.selected,
+body.theme-dark .config-sidebar-item.active {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: var(--primary-light) !important;
+  color: #fff !important;
+}
+
+
+/* ═══════════════════════════════
+   PATCH FINAL PONTUAL — CALENDÁRIO, NOTIFICAÇÕES E APARÊNCIA
+═══════════════════════════════ */
+
+/* Sidebar acompanha a cor escolhida */
+.sidebar {
+  background: linear-gradient(180deg, var(--primary-dark) 0%, var(--primary) 100%) !important;
+}
+
+/* Dia atual e dia selecionado do calendário */
+.cal-day.today {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.cal-day.selected {
+  background: #e8f0fe !important;
+  color: #1e4fc2 !important;
+  outline: 2px solid #1e4fc2 !important;
+}
+
+.cal-day.today.selected {
+  background: #1e4fc2 !important;
+  color: #ffffff !important;
+  outline: 2px solid #1e4fc2 !important;
+}
+
+/* Botões das ações de consulta preservam o design */
+.consulta-actions .btn-outline-cp,
+.consulta-actions .btn-outline-green,
+.consulta-actions .btn-outline-red {
+  justify-content: center;
+  min-width: 150px;
+}
+
+.btn-outline-green {
+  padding: 7px 14px;
+  border: 1.5px solid #86efac;
+  border-radius: 8px;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #15803d;
+  background: var(--green-pale);
+  transition: background .15s;
+  display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
+.btn-outline-green:hover {
+  background: #bbf7d0;
+}
+
+/* Notificações */
+.notif-btn {
+  background: #ffffff !important;
+  border-color: var(--gray-200) !important;
+  color: var(--gray-800) !important;
+}
+
+.notif-btn i {
+  color: var(--gray-800) !important;
+}
+
+.notif-dot.visible {
+  display: block !important;
+}
+
+body.theme-dark .notif-btn {
+  background: var(--primary) !important;
+  border-color: var(--primary-light) !important;
+  color: #ffffff !important;
+}
+
+body.theme-dark .notif-btn i {
+  color: #ffffff !important;
+}
+
+body.theme-dark .notif-btn:hover {
+  background: var(--primary-light) !important;
+}
+
+/* Modo escuro */
+body.theme-dark {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .main-area,
+body.theme-dark .content-area {
+  background: #0f172a !important;
+}
+
+body.theme-dark .topbar,
+body.theme-dark .home-card,
+body.theme-dark .stat-card,
+body.theme-dark .consultas-list,
+body.theme-dark .selected-day-detail,
+body.theme-dark .config-section,
+body.theme-dark .modal-card,
+body.theme-dark .notif-panel,
+body.theme-dark .chat-wrap,
+body.theme-dark .alert-bar {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark #page-title,
+body.theme-dark .home-greeting,
+body.theme-dark .config-section h3,
+body.theme-dark .consulta-info h4,
+body.theme-dark .rank-name,
+body.theme-dark .selected-day-detail h4,
+body.theme-dark .modal-card h3,
+body.theme-dark .chat-header h3,
+body.theme-dark .stat-value,
+body.theme-dark .notif-panel-header strong,
+body.theme-dark .notif-item .notif-text strong {
+  color: #f8fafc !important;
+}
+
+body.theme-dark #page-sub,
+body.theme-dark .home-sub,
+body.theme-dark .config-section p,
+body.theme-dark .consulta-info .doctor,
+body.theme-dark .consulta-info .place,
+body.theme-dark .consulta-meta span,
+body.theme-dark .stat-label,
+body.theme-dark .stat-sub,
+body.theme-dark .form-field label,
+body.theme-dark .form-label-cp,
+body.theme-dark .notif-item .notif-text span,
+body.theme-dark .alert-bar .alert-text p,
+body.theme-dark .cal-consult-item p {
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark .shortcut-btn,
+body.theme-dark .btn-outline-cp,
+body.theme-dark .btn-edit-cp,
+body.theme-dark .btn-reagendar-sm,
+body.theme-dark .btn-cancel-modal,
+body.theme-dark .mode-btn,
+body.theme-dark .font-btn,
+body.theme-dark .select-cp,
+body.theme-dark .form-field input,
+body.theme-dark .form-control-cp,
+body.theme-dark .chat-input,
+body.theme-dark .quick-btn {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .mode-btn.selected,
+body.theme-dark .font-btn.selected,
+body.theme-dark .config-sidebar-item.active {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: var(--primary-light) !important;
+  color: #fff !important;
+}
+
+body.theme-dark .msg-bot,
 body.theme-dark .cal-consult-item {
-  background: var(--primary-pale);
-  color: var(--gray-800);
+  background: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .cal-day.today {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+body.theme-dark .cal-day.selected {
+  background: rgba(59, 130, 246, 0.22) !important;
+  color: #93c5fd !important;
+  outline: 2px solid #3b82f6 !important;
+}
+
+body.theme-dark .cal-day.today.selected {
+  background: #1e4fc2 !important;
+  color: #ffffff !important;
 }

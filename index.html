@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CarePlus – Part of Bupa</title>
+
+  <link rel="icon" type="image/png" href="./assets/favicon.png.png">
   
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style/style.css" />
 </head>
 <body>
 
@@ -50,11 +52,11 @@
         </div>
       </div>
       <div style="text-align:right; margin-bottom:24px">
-        <a href="#" class="link-cp">Esqueci minha senha</a>
+        <a href="#" class="link-cp" onclick="abrirModalSenha(event)">Esqueci minha senha</a>
       </div>
       <button class="btn-cp-primary" onclick="doLogin()">Entrar</button>
       <p style="text-align:center; margin-top:20px; font-size:.88rem; color:var(--gray-600)">
-        Ainda não tem uma conta? <a href="#" class="link-cp">Cadastre-se</a>
+        Ainda não tem uma conta? <a href="#" class="link-cp" onclick="abrirModalCadastro(event)">Cadastre-se</a>
       </p>
     </div>
   </div>
@@ -539,7 +541,7 @@
                   <div class="toggle-switch" onclick="this.classList.toggle('off')"></div>
                 </div>
                 <div style="margin-top:20px">
-                  <button class="btn-edit-cp" onclick="toast('E-mail de redefinição enviado!')"><i class="bi bi-key"></i> Alterar senha</button>
+                  <button class="btn-edit-cp" onclick="abrirModalSenha(event)"><i class="bi bi-key"></i> Alterar senha</button>
                 </div>
               </div>
             </div>
@@ -641,10 +643,53 @@
   </div>
 </div>
 
+
+
+<!-- ═══════════ MODAL LOGIN / CADASTRO / ALTERAR SENHA ═══════════ -->
+<div class="auth-modal-overlay" id="auth-modal">
+  <div class="auth-modal-card">
+    <button class="auth-modal-close" type="button" onclick="fecharModalAuth()" aria-label="Fechar">
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+    <div id="auth-cadastro" class="auth-panel">
+      <div class="auth-icon"><i class="bi bi-person-plus-fill"></i></div>
+      <h3>Criar conta</h3>
+      <p>Cadastre seu CPF e crie uma senha para acessar o CarePlus.</p>
+
+      <label class="form-label-cp" for="cadastro-cpf">CPF</label>
+      <input type="text" class="form-control-cp" id="cadastro-cpf" placeholder="Digite 11 números" maxlength="14" />
+
+      <label class="form-label-cp" for="cadastro-senha">Senha</label>
+      <input type="password" class="form-control-cp" id="cadastro-senha" placeholder="Crie uma senha" />
+
+      <div class="auth-message" id="cadastro-msg"></div>
+
+      <button class="btn-cp-primary" type="button" onclick="criarCadastro()">Cadastrar</button>
+    </div>
+
+    <div id="auth-senha" class="auth-panel">
+      <div class="auth-icon"><i class="bi bi-key-fill"></i></div>
+      <h3>Alterar senha</h3>
+      <p>Informe o CPF cadastrado e crie uma nova senha de acesso.</p>
+
+      <label class="form-label-cp" for="recuperar-cpf">CPF cadastrado</label>
+      <input type="text" class="form-control-cp" id="recuperar-cpf" placeholder="Digite seu CPF" maxlength="14" />
+
+      <label class="form-label-cp" for="nova-senha">Nova senha</label>
+      <input type="password" class="form-control-cp" id="nova-senha" placeholder="Digite a nova senha" />
+
+      <div class="auth-message" id="senha-msg"></div>
+
+      <button class="btn-cp-primary" type="button" onclick="alterarSenha()">Salvar nova senha</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast-container" id="toast-container"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>

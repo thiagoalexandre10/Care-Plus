@@ -1094,3 +1094,138 @@ body.theme-dark .cal-day.selected {
   border: 1.5px solid #86efac;
   color: #15803d;
 }
+/* ═══════════════════════════════
+   RESPONSIVIDADE — ABA CONSULTAS
+═══════════════════════════════ */
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 12px 18px;
+    min-height: auto;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .topbar > div:first-child {
+    min-height: auto;
+    align-items: flex-start;
+  }
+
+  #page-title {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+
+  #page-sub {
+    font-size: .9rem;
+    line-height: 1.45;
+    max-width: 210px;
+  }
+
+  .topbar-right {
+    gap: 8px;
+  }
+
+  .btn-agendar {
+    padding: 10px 14px;
+    font-size: .85rem;
+    border-radius: 12px;
+  }
+
+  .content-area {
+    padding: 16px;
+  }
+
+  .filter-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    padding-bottom: 0;
+  }
+
+  .filter-tab {
+    flex: 0 0 auto;
+    padding: 10px 16px;
+  }
+
+  .consulta-item {
+    display: grid;
+    grid-template-columns: 58px 58px 1fr;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 16px;
+  }
+
+  .consulta-date {
+    min-width: auto;
+    padding-left: 0;
+  }
+
+  .consulta-date .day {
+    font-size: 1.6rem;
+  }
+
+  .consulta-icon-wrap {
+    width: 50px;
+    height: 50px;
+  }
+
+  .consulta-info {
+    min-width: 0;
+  }
+
+  .consulta-info h4 {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .consulta-info .doctor,
+  .consulta-info .place {
+    font-size: .86rem;
+    line-height: 1.35;
+  }
+
+  .consulta-meta {
+    grid-column: 3 / 4;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-width: 0;
+    margin-top: -4px;
+  }
+
+  .consulta-meta span {
+    font-size: .82rem;
+  }
+
+  .consulta-item > div[style*="min-width:120px"] {
+    grid-column: 3 / 4;
+    text-align: left !important;
+    min-width: 0 !important;
+    margin-top: 4px;
+  }
+
+  .consulta-actions {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+  }
+
+  .consulta-actions .btn-outline-cp,
+  .consulta-actions .btn-outline-green,
+  .consulta-actions .btn-outline-red {
+    width: 100%;
+    justify-content: center;
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: .86rem;
+  }
+
+  .badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+  }
+}

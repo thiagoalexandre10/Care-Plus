@@ -80,11 +80,13 @@ function formatarDataLonga(dataISO) {
 }
 
 function especialidadeInfo(esp) {
+  // Mantém ícones seguros do Bootstrap Icons para evitar quadrados vazios
+  // quando uma nova consulta é cadastrada pelo modal.
   const map = {
     'Cardiologista': { icon: 'bi-heart-pulse-fill', iconBg: '#e8f0fe', iconColor: '#1e4fc2', stripe: 'stripe-blue' },
-    'Clínico Geral': { icon: 'bi-stethoscope', iconBg: '#dcfce7', iconColor: '#22c55e', stripe: 'stripe-green' },
+    'Clínico Geral': { icon: 'bi-clipboard2-pulse-fill', iconBg: '#dcfce7', iconColor: '#22c55e', stripe: 'stripe-green' },
     'Oftalmologista': { icon: 'bi-eye-fill', iconBg: '#e0f2fe', iconColor: '#0ea5e9', stripe: 'stripe-green' },
-    'Ortopedista': { icon: 'bi-bandaid-fill', iconBg: '#fee2e2', iconColor: '#ef4444', stripe: 'stripe-red' },
+    'Ortopedista': { icon: 'bi-activity', iconBg: '#fee2e2', iconColor: '#ef4444', stripe: 'stripe-red' },
     'Dermatologista': { icon: 'bi-droplet-fill', iconBg: '#fef3c7', iconColor: '#f59e0b', stripe: 'stripe-blue' },
     'Neurologista': { icon: 'bi-cpu-fill', iconBg: '#ede9fe', iconColor: '#8b5cf6', stripe: 'stripe-blue' }
   };
@@ -671,8 +673,35 @@ function cancelarConsulta(consultaId) {
 
 function verDetalhesConsulta(consultaId) {
   const c = consultas.find(x => x.id === Number(consultaId));
-  if (!c) return;
-  toast(`👁️ ${c.esp} com ${c.medico} em ${formatarDataLonga(c.dataISO)} às ${c.hora}.`);
+  if (!c) {
+    toast('⚠️ Não foi possível localizar os detalhes desta consulta.');
+    return;
+  }
+
+  const statusFormatado = {
+    confirmada: 'Confirmada',
+    realizada: 'Realizada',
+    cancelada: 'Cancelada'
+  }[c.status] || c.status;
+
+  alert(
+    `Detalhes da consulta
+
+` +
+    `Especialidade: ${c.esp}
+` +
+    `Médico: ${c.medico}
+` +
+    `Local: ${c.local}
+` +
+    `Data: ${formatarDataLonga(c.dataISO)}
+` +
+    `Horário: ${c.hora}
+` +
+    `Duração: ${c.dur || '30 min'}
+` +
+    `Status: ${statusFormatado}`
+  );
 }
 
 // ──────────────────────────────────────────────────
